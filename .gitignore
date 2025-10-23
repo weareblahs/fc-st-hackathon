@@ -1,3 +1,5 @@
 *.csv
 *.rar
 *.parquet
+*.png
+*.svg
