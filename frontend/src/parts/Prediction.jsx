@@ -27,10 +27,12 @@ import {
 export const Prediction = ({ id }) => {
   const [trucks, selectTrucks] = useState([]);
   const [truck, selectTruck] = useState("");
+  const [predictResult, setPredictResult] = useState(-1);
   useEffect(() => {
     async function fetchData() {
       if (truck != "") {
         const response = await predict(id, truck);
+        setPredictResult(response);
       }
     }
     fetchData();
@@ -48,7 +50,7 @@ export const Prediction = ({ id }) => {
       <Card className="flex flex-col">
         <CardContent className="flex-1 p-0 overflow-hidden">
           <div className="grid grid-cols-12">
-            <div className="col-span-4 ms-5 h-full">
+            <div className="col-span-4 ms-8 h-full">
               <div className="ms-2">
                 <h1 className="text-8xl font-bold mb-4">Data Prediction</h1>
                 <h1 className="text-2xl mb-4">
@@ -72,7 +74,20 @@ export const Prediction = ({ id }) => {
                 </SelectContent>
               </Select>
             </div>
-            <div className="col-span-8"></div>
+            <div className="col-span-8 ms-auto me-auto mt-auto mb-auto">
+              {predictResult != -1 ? (
+                <>
+                  <h1 className="text-9xl font-bold">
+                    {predictResult != -1 ? `${predictResult}%` : "..."}
+                  </h1>
+                  <h1 className="text-2xl text-center">
+                    effecient route for next trip
+                  </h1>
+                </>
+              ) : (
+                <h1>Select a truck at the left side to begin predicting.</h1>
+              )}
+            </div>
           </div>
         </CardContent>
       </Card>

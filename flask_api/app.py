@@ -193,5 +193,13 @@ def get_predict_data(uuid, truck):
     "Age_of_Truck_months": d_nonzero['Trip_Distance_km'].mean()
     })
 
+@app.route('/<uuid>/get_data')
+def get_data(uuid):
+   path = Path(f'data/{uuid}')
+   return jsonify({
+       "message": "Successful data retrieval!",
+       "images": [str(p).replace('\\','/') for p in list(path.rglob("*.svg"))]
+   })
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

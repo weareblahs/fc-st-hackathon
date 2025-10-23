@@ -182,7 +182,13 @@ export const Location = ({ id }) => {
                   </div>
                 </div>
               ) : (
-                <div></div>
+                <div className="w-full h-full mt-2">
+                  <h1 className="">
+                    Select a truck above to view truck statistics, including
+                    total driven distance, fuel statistics, map visualization
+                    and others.
+                  </h1>
+                </div>
               )}
             </div>
             <div className="col-span-8 h-full w-[96%]">

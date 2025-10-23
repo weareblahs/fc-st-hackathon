@@ -46,10 +46,15 @@ export const predict = async (id, truck) => {
         json: data,
       })
       .json();
-    console.log(
+    return (
       Math.round(prediction["predicted_route_efficiency"] * 100 * 100) / 100
     );
   } else {
     return 0;
   }
+};
+
+export const DownloadImageURLs = async (id) => {
+  const data = await ky.get(`http://127.0.0.1:5000/${id}/get_data`).json();
+  return data;
 };
