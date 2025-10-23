@@ -1,0 +1,7 @@
+ml_fastapi
+ - app.py (completed)
+ - train.py (completed)
+ - requirements.txt (completed)
+ - Dockerfile
+ -.dockerignore (completed)
+ - docker-compose.yml
