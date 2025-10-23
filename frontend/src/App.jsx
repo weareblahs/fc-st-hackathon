@@ -16,6 +16,7 @@ import { Button } from "./components/ui/button";
 import { GenerateDataFromCSV } from "./tools/GenerateDataFromCSV";
 
 function App() {
+  const [uuid, setid] = useState("extracted_data");
   const handleFileChange = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -64,17 +65,17 @@ function App() {
         </div>
       </div>
       <div className="h-[45vh]">
-        <FuelEff />
+        <FuelEff id={uuid} />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-4">
         <div className="grid col-span-1 lg:col-span-2 mt-4 me-0 lg: me-6">
           <div>
-            <TopEffDrivers />
+            <TopEffDrivers id={uuid} />
           </div>
         </div>
         <div className="grid col-span-1 lg:col-span-2 mt-4">
           <div>
-            <TruckDirection />
+            <TruckDirection id={uuid} />
           </div>
         </div>
       </div>

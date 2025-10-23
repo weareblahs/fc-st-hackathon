@@ -4,15 +4,21 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { CartesianGrid, Pie, PieChart } from "recharts";
+import { DownloadDirection } from "@/DownloadData";
+import { useEffect, useState } from "react";
+import { Pie, PieChart } from "recharts";
 
-export const TruckDirection = () => {
-  const chartData = [
-    { position: "north", data: 275, fill: "var(--color-n)" },
-    { position: "south", data: 201, fill: "var(--color-s)" },
-    { position: "east", data: 187, fill: "var(--color-e)" },
-    { position: "west", data: 173, fill: "var(--color-w)" },
-  ];
+export const TruckDirection = ({ id }) => {
+  const [chartData, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await DownloadDirection(id);
+      setData(response);
+    }
+    fetchData();
+  }, []);
+
   const chartConfig = {
     n: {
       label: "North",
@@ -35,7 +41,7 @@ export const TruckDirection = () => {
     <Card className="h-full">
       <CardHeader className="">
         <div className="">
-          <h1>Truck Direction</h1>
+          <h1>Truck Direction by trip count</h1>
         </div>
       </CardHeader>
       <CardContent className="mt-auto mb-auto">
@@ -44,7 +50,7 @@ export const TruckDirection = () => {
           className="[&_.recharts-pie-label-text]:fill-foreground mx-auto max-h-[300px]  pb-0"
         >
           <PieChart className="h-[10vh]">
-            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+            <ChartTooltip content={<ChartTooltipContent label="test" />} />
             <Pie
               data={chartData}
               dataKey="data"

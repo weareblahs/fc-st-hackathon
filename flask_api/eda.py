@@ -46,14 +46,15 @@ def eda(uuid):
     sns.set_style("whitegrid")
     plt.rcParams['figure.figsize'] = (12, 6)
     plt.rcParams['font.size'] = 10
-    # os.chdir('data')
-    # os.chdir(uuid)
-    # Paths
-    DATA_DIR = Path('../collected')
-    CACHE_DIR = Path('../cache')
-    OUTPUT_DIR = Path('deliverables')
-    CACHE_DIR.mkdir(exist_ok=True)
-    OUTPUT_DIR.mkdir(exist_ok=True)
+    
+    # Set up paths relative to data directory
+    DATA_DIR = Path('data') / uuid / 'collected'
+    CACHE_DIR = Path('data') / uuid / 'cache'
+    OUTPUT_DIR = Path('data') / uuid / 'deliverables'
+    
+    # Create directories
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
     # Create separate directories for each dataset
     for dataset in ['rows', 'trips', 'combined', 'merged', 'trip_level']:
@@ -136,20 +137,20 @@ def eda(uuid):
     
     # Trips data
     df_trips = pd.read_csv(
-        f'{DATA_DIR}/safetruck_data_iter1_trips.csv',
+        'safetruck_data_iter1_trips.csv',
         parse_dates=['timestamp_start', 'timestamp_end']
     )
     
     # Rows data (telemetry)
     df_rows = pd.read_csv(
-        f'{DATA_DIR}/safetruck_data_iter1_rows.csv',
+        f'safetruck_data_iter1_rows.csv',
         parse_dates=['timestamp']
     )
     
     # Combined data
     df_combined = pd.read_csv(
-        DATA_DIR / 'combined_data.csv',
-        parse_dates=['timestamp'] if 'timestamp' in pd.read_csv(DATA_DIR / 'combined_data.csv', nrows=0).columns else None
+        'combined_data.csv',
+        parse_dates=['timestamp'] if 'timestamp' in pd.read_csv('combined_data.csv', nrows=0).columns else None
     )
     
     print(f"df_rows shape: {df_rows.shape}")
