@@ -35,7 +35,7 @@ def cleaning(uuid):
 
 
     # Load the combined data
-    data_path = os.getenv('COMBINED_DATA_PATH', 'data/collected/combined_data.csv')
+    data_path = os.getenv('COMBINED_DATA_PATH', f'combined_data.csv')
     df = pd.read_csv(data_path, low_memory=False)
 
     print(f"Loaded {len(df):,} rows")
@@ -279,7 +279,8 @@ def cleaning(uuid):
     print(scale_factors.describe())
 
     # Map scale factors back to dataframe
-    df['scale_factor'] = df['vehicle_id'].map(scale_factors).fillna(1.0)
+    # Convert vehicle_id to string temporarily to avoid categorical issues
+    df['scale_factor'] = df['vehicle_id'].astype(str).map(scale_factors.to_dict()).fillna(1.0)
 
 
     # In[27]:
@@ -595,7 +596,7 @@ def cleaning(uuid):
     ]].copy()
 
     # Save the consolidated cleaned dataset
-    output_path = 'data/combined_data_cleaned_pass1.csv'
+    output_path = f'combined_data_cleaned_pass1.csv'
     df_cleaned.to_csv(output_path, index=False)
 
     print(f"✓ Saved {output_path}")
@@ -604,8 +605,8 @@ def cleaning(uuid):
     print(f"  File size: ~{len(df_cleaned) * len(df_cleaned.columns) * 8 / 1024 / 1024:.1f} MB (estimated)")
 
     # Also save the aggregated dataframes for convenience
-    df_trips_valid.to_csv('data/df_trips.csv', index=False)
-    df_daily.to_csv('data/df_daily.csv', index=False)
+    df_trips_valid.to_csv('df_trips.csv', index=False)
+    df_daily.to_csv('df_daily.csv', index=False)
 
     print(f"\n✓ Also saved supplementary files:")
     print(f"  - data/df_trips.csv: {len(df_trips_valid):,} trips")
