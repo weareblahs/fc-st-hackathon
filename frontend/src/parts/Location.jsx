@@ -116,10 +116,10 @@ export const Location = ({ id }) => {
   };
   return (
     <>
-      <Card className="h-[45vh] flex flex-col">
+      <Card className="h-max lg:h-[45vh] flex flex-col">
         <CardContent className="flex-1 p-0 overflow-hidden">
           <div className="grid grid-cols-12 h-full">
-            <div className="col-span-4 p-4 ms-8 me-8">
+            <div className="col-span-12 lg:col-span-4 p-4 ms-8 me-8">
               <Select onValueChange={(v) => selectTruck(v)}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a truck" />
@@ -191,7 +191,7 @@ export const Location = ({ id }) => {
                 </div>
               )}
             </div>
-            <div className="col-span-8 h-full w-[96%]">
+            <div className="col-span-12 lg:col-span-8 h-[50vw] lg:h-full w-[96%]">
               {smoothedPos.length > 0 && (
                 <MapContainer
                   center={smoothedPos[0]}

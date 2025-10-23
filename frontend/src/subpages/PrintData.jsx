@@ -63,7 +63,7 @@ export const PrintData = () => {
                 <Button onClick={() => window.print()}>Print</Button>
               </div>
             </div>
-            <div className="grid grid-cols-4 print:grid-cols-1">
+            <div className="grid grid-cols-2 lg:grid-cols-4 print:grid-cols-1">
               {img.images?.map((i, ind) => {
                 return (
                   <div className="mt-auto mb-auto p-2 print:text-black">

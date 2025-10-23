@@ -46,7 +46,9 @@ export const TopEffDrivers = ({ id }) => {
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[10%]">#</TableHead>
-                <TableHead className="w-[70%]">License plate</TableHead>
+                <TableHead className="w-[40%] md:w-[70%] lg:w-[70%]">
+                  License plate
+                </TableHead>
                 <TableHead className="w-[20%]">Total moving time</TableHead>
               </TableRow>
             </TableHeader>
