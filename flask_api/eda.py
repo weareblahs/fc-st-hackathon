@@ -1698,6 +1698,9 @@ def eda(uuid):
     print(f"  - Actionable insights: summaries/actionable_insights.csv")
     
     print("\n" + "=" * 80)
+    # back from chdir (see step 1)
+    os.chdir('..')
+    os.chdir('..')
 
 
 if __name__ == "__main__":

@@ -6,41 +6,9 @@ import warnings
 from combine import combine
 from cleaning import cleaning
 import os
+from pathlib import Path
 from eda import eda
 app = Flask(__name__, static_folder='data')
-
-# HELPER FUNCTIONS START
-def haversine_distance(lat1, lon1, lat2, lon2):
-    """
-    Calculate great-circle distance between two points on Earth (in km).
-    Vectorized for pandas Series.
-    """
-    # Convert decimal degrees to radians
-    lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
-    
-    # Haversine formula
-    dlat = lat2 - lat1
-    dlon = lon2 - lon1
-    a = np.sin(dlat/2)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2)**2
-    c = 2 * np.arcsin(np.sqrt(a))
-    
-    # Radius of earth in kilometers
-    r = 6371.0
-    return c * r
-
-
-def column_exists(df, col_name):
-    """Check if column exists (case-insensitive)."""
-    return col_name.lower() in [c.lower() for c in df.columns]
-
-
-def safe_divide(numerator, denominator, default=np.nan):
-    """Safely divide two arrays, handling zero division."""
-    result = np.full_like(numerator, default, dtype=float)
-    mask = denominator != 0
-    result[mask] = numerator[mask] / denominator[mask]
-    return result
-# HELPER FUNCTIONS END
 
 @app.route('/')
 def home():
@@ -66,12 +34,13 @@ def eda_gen():
     # combine(uuid)
     # cleaning(uuid)
     # eda(uuid)
-
+    
+    # http://localhost:5000/data/extracted_data/deliverables/trip_level/correlations/pearson_correlation.svg
+    # recursive search under the static dir
+    path = Path(f'data/{uuid}/deliverables')
     return jsonify({
         "message": "Successful data retrieval!",
-        "images":[
-            
-        ]
+        "images": [str(p).replace('\\','/') for p in list(path.rglob("*.svg"))]
     })
     # return redirect('https://i.pinimg.com/736x/80/66/9e/80669efdaef7dead858fe7ce1d12ba9f.jpg')
 
