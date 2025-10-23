@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
@@ -6,7 +6,8 @@ import warnings
 from combine import combine
 from cleaning import cleaning
 import os
-app = Flask(__name__)
+from eda import eda
+app = Flask(__name__, static_folder='data')
 
 # HELPER FUNCTIONS START
 def haversine_distance(lat1, lon1, lat2, lon2):
@@ -62,12 +63,17 @@ def eda_gen():
     print(f"NumPy version: {np.__version__}")
     # STEP 1: combine
     # Get the absolute path to the data directory relative to this file
-    combine(uuid)
-    cleaning(uuid)
+    # combine(uuid)
+    # cleaning(uuid)
+    # eda(uuid)
+
     return jsonify({
-        "message": "Hello from Flask API!",
-        "status": "success"
+        "message": "Successful data retrieval!",
+        "images":[
+            
+        ]
     })
+    # return redirect('https://i.pinimg.com/736x/80/66/9e/80669efdaef7dead858fe7ce1d12ba9f.jpg')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
