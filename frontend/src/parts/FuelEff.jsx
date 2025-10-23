@@ -28,6 +28,7 @@ export const FuelEff = ({ id }) => {
   // download data
   useEffect(() => {
     async function fetchData() {
+      // You can await here
       const response = await DownloadAvgSpeed(id);
       setData(response);
     }
@@ -45,24 +46,7 @@ export const FuelEff = ({ id }) => {
       <Card className="h-[45vh]">
         <CardHeader className="grid grid-cols-12">
           <div className="col-span-6 lg:col-span-8 mt-auto mb-auto">
-            <h1>Fuel Effeciency</h1>
-          </div>
-          <div className="block md:flex lg:flex col-span-6 lg:col-span-4">
-            {/* <div className="block max-w-[100%]"></div> */}
-            <div className="block mt-auto mb-auto me-5">
-              <h1>Sort by</h1>
-            </div>
-            <Select onValueChange={(e) => changeType(e)}>
-              <SelectTrigger className="max-w-[84%]">
-                <SelectValue placeholder="Route" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="route">Route</SelectItem>
-                  <SelectItem value="avg_speed">Average Speed</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <h1>Average Speed</h1>
           </div>
         </CardHeader>
         <CardContent>

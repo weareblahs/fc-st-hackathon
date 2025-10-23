@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import "leaflet/dist/leaflet.css";
 import {
   ChartContainer,
   ChartTooltip,
@@ -14,6 +13,8 @@ import { TopEffDrivers } from "./parts/TopEffDrivers";
 import { TruckDirection } from "./parts/TruckDirection";
 import { Button } from "./components/ui/button";
 import { GenerateDataFromCSV } from "./tools/GenerateDataFromCSV";
+import { Location } from "./parts/Location";
+import { Prediction } from "./parts/Prediction";
 
 function App() {
   const [uuid, setid] = useState("extracted_data");
@@ -78,6 +79,12 @@ function App() {
             <TruckDirection id={uuid} />
           </div>
         </div>
+      </div>{" "}
+      <div className="mt-4 w-full">
+        <Location id={uuid} />
+      </div>
+      <div className="mt-4 w-full">
+        <Prediction id={uuid} />
       </div>
     </div>
   );

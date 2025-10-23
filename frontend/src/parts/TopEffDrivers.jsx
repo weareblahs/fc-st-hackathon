@@ -52,7 +52,7 @@ export const TopEffDrivers = ({ id }) => {
             </TableHeader>
             <TableBody>
               {drivers.length == 0 ? (
-                <h1>No data</h1>
+                <></>
               ) : (
                 drivers.map((d) => {
                   return (
