@@ -67,11 +67,8 @@ export const PrintData = () => {
               {img.images?.map((i, ind) => {
                 return (
                   <div className="mt-auto mb-auto p-2 print:text-black">
-                    <a href={`http://localhost:5000/${i}`}>
-                      <img
-                        src={`http://localhost:5000/${i}`}
-                        className="w-full"
-                      />
+                    <a href={`/api/${i}`}>
+                      <img src={`/api/${i}`} className="w-full" />
                     </a>
                     <p>{dataInfo[ind]}</p>
                   </div>

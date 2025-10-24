@@ -48,11 +48,11 @@ function Home() {
 
   return (
     <div className="p-6 dark">
-      <div className="grid grid-cols-2 pb-3 text-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 pb-3 text-white">
         <div className="mt-auto mb-auto">
           <h1 className="">Dashboard</h1>
         </div>
-        <div className="flex ms-auto">
+        <div className="flex ms-auto me-auto lg:me-0">
           <h1 className="pe-4 mt-auto mb-auto">Want a report?</h1>
           {/* <input
             id="file-input"
@@ -75,7 +75,7 @@ function Home() {
         <FuelEff id={uuid} />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-4">
-        <div className="grid col-span-1 lg:col-span-2 mt-4 me-0 lg: me-6">
+        <div className="grid col-span-1 lg:col-span-2 mt-4 me-0 lg:">
           <div>
             <TopEffDrivers id={uuid} />
           </div>

@@ -54,7 +54,7 @@ export const Prediction = ({ id }) => {
               <div className="ms-2">
                 <h1 className="text-8xl font-bold mb-4">Data Prediction</h1>
                 <h1 className="text-2xl mb-4">
-                  Predict the route effeciency for the next trip.
+                  Predict the vehicle effeciency for the next trip.
                 </h1>
               </div>
               <Select onValueChange={(v) => selectTruck(v)}>
@@ -88,13 +88,13 @@ export const Prediction = ({ id }) => {
       <Card className="flex md:hidden lg:hidden flex-col">
         <CardContent className="flex-1 p-0 overflow-hidden">
           <div className="grid grid-cols-12">
-            <div className="col-span-12 lg:col-span-4 ms-8 h-full">
-              <div className="ms-2">
+            <div className="col-span-12  ms-8 h-full">
+              <div className="ms-0">
                 <h1 className="text-4xl lg:text-8xl font-bold mb-4">
                   Data Prediction
                 </h1>
                 <h1 className="text-base lg:text-2xl mb-4">
-                  Predict the route effeciency for the next trip.
+                  Predict the vehicle effeciency for the next trip.
                 </h1>
               </div>
               <div className="pe-6">
@@ -120,10 +120,10 @@ export const Prediction = ({ id }) => {
             <div className="col-span-12 lg:col-span-8 text-center ms-auto me-auto mt-auto mb-auto">
               {predictResult != -1 ? (
                 <>
-                  <h1 className="text-9xl font-bold">
+                  <h1 className="text-7xl font-bold">
                     {predictResult != -1 ? `${predictResult}%` : "..."}
                   </h1>
-                  <h1 className="text-2xl text-center">
+                  <h1 className="text-xl text-center">
                     effecient route for next trip
                   </h1>
                 </>

@@ -31,17 +31,14 @@ export const TopEffDrivers = ({ id }) => {
     return `${h}h ${m}m`;
   };
   return (
-    <Card>
-      <CardHeader className="grid grid-cols-12">
-        <div className="col-span-6 lg:col-span-8 mt-auto mb-auto">
+    <Card className="me-0 md:me-4 lg:me-4">
+      <CardHeader className="">
+        <div className="mt-auto mb-auto">
           <h1>Top Efficiency Drivers</h1>
-        </div>
-        <div className="block md:flex lg:flex col-span-6 lg:col-span-4">
-          {/* <div className="block max-w-[100%]"></div> */}
         </div>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[35vh]">
+        <ScrollArea className="h-[45vh] me-0">
           <Table className="">
             <TableHeader>
               <TableRow>

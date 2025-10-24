@@ -137,33 +137,33 @@ export const Location = ({ id }) => {
                 </SelectContent>
               </Select>
               {truck != "" ? (
-                <div className="grid grid-cols-2 h-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:md:grid-cols-2 h-[80%]">
                   <div className="py-6 mt-auto mb-auto">
-                    <h1 className="text-center text-4xl font-bold">
+                    <h1 className="text-center text-3xl font-bold">
                       {truckStats["month_total_distance"]
                         ? `${truckStats["month_total_distance"]}km`
                         : "..."}
                     </h1>
-                    <h1 className="text-center text-xl">driven this month</h1>
+                    <h1 className="text-center text-base">driven this month</h1>
                   </div>
                   <div className="py-6 mt-auto mb-auto">
-                    <h1 className="text-center text-4xl font-bold">
+                    <h1 className="text-center text-3xl font-bold">
                       {truckStats["day_total_distance_avg"]
                         ? `${truckStats["day_total_distance_avg"]}km`
                         : "..."}
                     </h1>
-                    <h1 className="text-center text-xl">
+                    <h1 className="text-center text-base">
                       driven each day (average)
                     </h1>
                   </div>{" "}
                   <div className="py-6 mt-auto mb-auto">
-                    <h1 className="text-center text-4xl font-bold">
+                    <h1 className="text-center text-3xl font-bold">
                       {" "}
                       {truckStats["total_wasted"]
                         ? `RM${truckStats["total_wasted"]}`
                         : "..."}
                     </h1>
-                    <h1 className="text-center text-xl">
+                    <h1 className="text-center text-base">
                       {truckStats["fuel_liters"]
                         ? `(${truckStats["fuel_liters"]}l)`
                         : "..."}
@@ -172,13 +172,15 @@ export const Location = ({ id }) => {
                     </h1>
                   </div>{" "}
                   <div className="py-6 mt-auto mb-auto">
-                    <h1 className="text-center text-4xl font-bold">
+                    <h1 className="text-center text-3xl font-bold">
                       {" "}
                       {truckStats["total_idle_min"]
                         ? convertMinsToHrsMins(truckStats["total_idle_min"])
                         : "..."}
                     </h1>
-                    <h1 className="text-center text-xl">idle for this month</h1>
+                    <h1 className="text-center text-base">
+                      idle for this month
+                    </h1>
                   </div>
                 </div>
               ) : (

@@ -1,3 +1,7 @@
+# What's this?
+
+This is a project for a hackathon - which utilizes data science skills, such as prediction, data analysis and others.
+
 # How to run this project
 
 ## STEP 0: Before you continue with everything...
