@@ -27,7 +27,7 @@ There are 3 servers this project needs:
 
 ...but all must be installed and run before you can begin using this web app.
 
-> [! TIP]
+> [!TIP]
 > It is recommended that you run this project from 3 separate Terminal / Command Prompt sessions - which allows you to run commands simultaneously. This is what the project needs - one session for each server.
 
 ## STEP 2: Installing required packages for all the servers
@@ -73,7 +73,7 @@ Then go to this URL in your browser (or tools such as cURL and Postman):
 http://localhost:5000/generate_eda
 ```
 
-> [! TIP]
+> [!TIP]
 > After you access this URL, the browser should load for a long time. This depends on the specifications of the computer - it should take around 3-5 minutes for recent computers. Go back to the terminal window where Flask is running to see readable processing logs.
 
 Do not close this server yet! It is still being used for the frontend later on.
