@@ -1,6 +1,6 @@
 # What's this?
 
-This is a project for a hackathon - which utilizes data science skills, such as prediction, data analysis and others.
+This is a project for a hackathon - which utilizes data science, frontend dev, backend dev, API dev and deployment skills, featuring prediction, data analysis and others.
 
 # How to run this project
 
@@ -105,3 +105,9 @@ Open the following URL in your browser:
 ```
 http://localhost:5173
 ```
+
+credit:
+@[weareblahs](https://github.com/weareblahs) - Lead frontend, backend, API developer, Devops engineer
+[@ThaddeusTeh2](https://github.com/ThaddeusTeh2) - team lead, project manager, data analyst, ML engineer, Presentation Lead
+[@yee-ling](https://github.com/yee-ling) - Business Analyst, Technical Writer, Strategic Analyst
+[@ainulmazwan](https://github.com/ainulmazwan) - Business Analyst, Technical Writer, Strategic Analyst
