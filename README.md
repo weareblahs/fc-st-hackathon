@@ -2,6 +2,21 @@
 
 This is a project for a hackathon - which utilizes data science, frontend dev, backend dev, API dev and deployment skills, featuring prediction, data analysis and others.
 
+## Project Context
+
+Fleet operators generate large volumes of raw GPS and IoT telemetry data each day. While this data is rich, it is not directly actionable without transformation. As a result, companies struggle to make real-time decisions, identify inefficiencies, and optimize route performance.
+
+This project addresses that challenge by converting raw telemetry into operational intelligence for delivery and transport fleets. The system provides:
+
+- **Route Efficiency Scoring** based on speed patterns, idle durations, distance, and fuel-related indicators  
+- **Idle Time Detection** to highlight unproductive periods and reduce wasted operational hours  
+- **Fuel Consumption Insights** to support cost-saving and sustainability strategies  
+- **Driver and Vehicle Performance Metrics** revealing safety and efficiency trends  
+- **Predictive Analytics** forecasting route efficiency using machine-learning models  
+- **Automated Visual Reports** that summarize key metrics for quick managerial decisions  
+
+The platform integrates a **React dashboard**, **Flask backend**, and **FastAPI prediction engine**, forming a full end-to-end analytics system that transforms raw telemetry into actionable insights for smarter, greener fleet operations.
+
 # How to run this project
 
 ## STEP 0: Before you continue with everything...
